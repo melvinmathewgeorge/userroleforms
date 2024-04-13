@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Mysite | Login{% endblock %}
+{% block content %}
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <div class="card">
+      <div class="card-body">
+        <form id="loginForm" action="{% url 'users:login_user' %}" method="post" novalidate>
+          {% csrf_token %}
+          {{form.as_p}}
+          <input type="submit" class="btn btn-primary w-100">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById("loginForm").addEventListener("submit", function(event) {
+    var email = document.getElementById("id_email").value.trim();
+    var password = document.getElementById("id_password").value.trim();
+
+    if (email === "" || password === "") {
+      event.preventDefault(); 
+      alert("Please fill in all fields.");
+    }
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      event.preventDefault();
+      alert("Please enter a valid email address.");
+    }
+  });
+</script>
+
+{% endblock %}

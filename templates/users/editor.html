@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome Editor{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+    }
+    header {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+    }
+    .container {
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+    }
+</style>
+
+<header>
+    <h1>Editorial</h1>
+</header>
+
+<div class="container">
+    <article>
+        <h2>This is the Editor's Page</h2>
+        <p>Users with the Editor role are welcome here.</p>
+    </article>
+</div>
+{% endblock %}
